@@ -1,6 +1,5 @@
 > This repository is a fork of [repeat-space/anki-apkg-export](https://github.com/repeat-space/anki-apkg-export).
-> It was created to support another project of mine: [md2apkg](https://github.com/Steve2955/md2apkg).
-> Currently, the changes within this repository are explicitly to support [md2apkg](https://github.com/Steve2955/md2apkg) since [repeat-space/anki-apkg-export](https://github.com/repeat-space/anki-apkg-export) hasn't been maintained well.
+> Since [repeat-space/anki-apkg-export](https://github.com/repeat-space/anki-apkg-export) hasn't been maintained well.
 
 
 # anki-apkg-export
@@ -12,7 +11,7 @@ Port of the Ruby gem https://github.com/albertzak/anki2
 ## Install
 
 ```
-$ npm install anki-apkg-export --save
+$ yarn add https://github.com/rainrisa/anki-apkg-export.git
 ```
 
 ## Usage
@@ -20,8 +19,8 @@ $ npm install anki-apkg-export --save
 ### server
 
 ```js
-const fs = require('fs');
-const AnkiExport = require('anki-apkg-export').default;
+import fs from 'fs'
+import AnkiExport from '@rainrisa/anki-apkg-export'
 
 const apkg = new AnkiExport('deck-name');
 
@@ -112,10 +111,6 @@ apkg
 - `v3.0.0` - add tags, ES6 refactor (breaking)
 - `v2.0.0` - add media support, update jszip dependency (breaking)
 - `v1.0.0` - initial rewrite
-
-## Tips
-
-- [issue#25](https://github.com/ewnd9/anki-apkg-export/issues/25) - Dealing with `sql.js` memory limits
 
 ## Related
 

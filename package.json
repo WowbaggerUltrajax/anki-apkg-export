@@ -1,14 +1,17 @@
 {
-  "name": "@steve2955/anki-apkg-export",
+  "name": "@wowbaggerultrajax/anki-apkg-export",
   "description": "Generate decks for Anki (spaced repetition software)",
   "version": "5.0.0",
   "main": "src/index.js",
   "dependencies": {
+    "crypto-browserify": "^3.12.1",
+    "file-saver": "^2.0.5",
     "jszip": "^3.2.2",
+    "path-browserify": "^1.0.1",
     "sha1": "^1.1.1",
-    "sql.js": "^0.5.0"
+    "sql.js": "^0.5.0",
+    "stream-browserify": "^3.0.0"
   },
-  "author": "ewnd9 <ewndnine@gmail.com>",
   "keywords": [
     "anki",
     "spaced repetition software",
@@ -17,10 +20,10 @@
     "apkg"
   ],
   "license": "MIT",
-	"type":"module",
+  "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Steve2955/anki-apkg-export.git"
+    "url": "git+https://github.com/wowbaggerultrajax/anki-apkg-export.git"
   },
   "scripts": {
     "build:watch": "babel -w -d dist src",
@@ -28,5 +31,8 @@
     "postpublish": "rm -rf dist",
     "test": "yarn run lint && ava",
     "test:watch": "yarn run test -- --watch"
+  },
+  "devDependencies": {
+    "webpack-cli": "^6.0.1"
   }
 }
