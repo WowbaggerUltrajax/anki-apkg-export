@@ -1,4 +1,4 @@
-name: Webpack Build
+name: Webpack Build and Commit
 
 on:
   push:
@@ -6,12 +6,14 @@ on:
       - master
 
 jobs:
-  build:
+  build_and_commit:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout the repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full history so we can make commits
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -19,7 +21,21 @@ jobs:
           node-version: "18"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Run webpack build
+      - name: Run Webpack build
         run: npx webpack
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit changes
+        run: |
+          git add dist
+          # Only commit if there are changes
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update webpack build [skip ci]" || true
+            git push
+          fi
