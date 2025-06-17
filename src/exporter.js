@@ -1,6 +1,6 @@
 import sha1 from "sha1";
 import Zip from "jszip";
-import Buffer from "buffer";
+import { Buffer } from "buffer";
 
 export default class {
   constructor(deckName, { template, sql }) {
