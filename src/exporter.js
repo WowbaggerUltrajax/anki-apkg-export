@@ -51,21 +51,7 @@ export default class {
 
     media.forEach((item, i) => zip.file(i, item.data));
 
-    if (process.env.APP_ENV === "browser" || typeof window !== "undefined") {
-      return zip.generateAsync(Object.assign({}, { type: "blob" }, options));
-    } else {
-      return zip.generateAsync(
-        Object.assign(
-          {},
-          {
-            type: "nodebuffer",
-            base64: false,
-            compression: "DEFLATE",
-          },
-          options
-        )
-      );
-    }
+    return zip.generateAsync(Object.assign({}, { type: "blob" }, options));
   }
 
   addMedia(filename, data) {
