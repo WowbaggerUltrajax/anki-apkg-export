@@ -16,7 +16,7 @@ export default {
       os: "os-browserify/browser",
       crypto: "crypto-browserify",
       stream: "stream-browserify",
-      buffer: "buffer-browserify",
+      buffer: "buffer/",
       fs: false,
       vm: false,
     },
